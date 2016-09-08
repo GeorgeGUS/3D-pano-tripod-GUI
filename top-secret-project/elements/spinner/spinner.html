@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>spinner</title>
+  <link rel="stylesheet" href="spinner.css">
+  <link rel="stylesheet" href="range.css">
+</head>
+
+<body>
+  <div class="axis-wrapper">
+    <section class="X-axis-spinner axis">
+      <h2 class="axis-title">Ось X</h2>
+      <div id="spinner" class="spinner">
+        <div class="spinner_wrapper">
+          <div class="spinner_segment">
+            <div class="spinner_segment_before"></div>
+            <div class="spinner_segment_after"></div>
+          </div>
+        </div>
+      </div>
+      <div class="angle_wrapper">
+        <p class="angle_title">Угол поворота сегмента</p>
+        <form action="" method="post" oninput="wide_value.value = 180-wide_control.value*2; angle_value.value = angle_control.value">
+          <label>Угол поворота: <span>0</span>
+            <input type="range" class="angle_control" name="angle_control" min="0" max="360" step="1" value="0"><span>360</span>
+            <output name="angle_value" class="input-value">0</output> градусов</label><br/>
+          <label>Угол обзора: <span>180</span>
+            <input type="range" class="wide_control" name="wide_control" min="0" max="89.5" step="0.5" value="0"><span>1</span>
+            <output name="wide_value" class="input-value"><span>180</span></output>градусов</label>
+        </form>
+      </div>
+    </section>
+    <section class="Y-axis-spinner axis">
+      <h2 class="axis-title">Ось Y</h2>
+      <div id="spinner" class="spinner">
+        <div class="spinner_wrapper">
+          <div class="spinner_segment">
+            <div class="spinner_segment_before"></div>
+            <div class="spinner_segment_after"></div>
+          </div>
+        </div>
+      </div>
+      <div class="angle_wrapper">
+        <p class="angle_title">Угол поворота сегмента</p>
+        <form action="" method="post" oninput="wide_value.value = 180-wide_control.value*2; angle_value.value = angle_control.value">
+          <label>Угол поворота: <span>0</span>
+            <input type="range" class="angle_control" name="angle_control" min="0" max="360" step="1" value="0"><span>360</span>
+            <output name="angle_value" class="input-value">0</output> градусов</label><br/>
+          <label>Угол обзора: <span>180</span>
+            <input type="range" class="wide_control" name="wide_control" min="0" max="89.5" step="0.5" value="0"><span>1</span>
+            <output name="wide_value" class="input-value"><span>180</span></output>градусов</label>
+        </form>
+      </div>
+    </section>
+    <section class="Z-axis-spinner axis">
+      <h2 class="axis-title">Ось Z</h2>
+      <div id="spinner" class="spinner">
+        <div class="spinner_wrapper">
+          <div class="spinner_segment">
+            <div class="spinner_segment_before"></div>
+            <div class="spinner_segment_after"></div>
+          </div>
+        </div>
+      </div>
+      <div class="angle_wrapper">
+        <p class="angle_title">Угол поворота сегмента</p>
+        <form action="" method="post" oninput="wide_value.value = 180-wide_control.value*2; angle_value.value = angle_control.value">
+          <label>Угол поворота: <span>0</span>
+            <input type="range" class="angle_control slider" name="angle_control" min="0" max="360" step="1" value="0"><span>360</span>
+            <output name="angle_value" class="input-value">0</output> градусов</label><br/>
+          <label>Угол обзора: <span>180</span>
+            <input type="range" class="wide_control slider" name="wide_control" min="0" max="89.5" step="0.5" value="0"><span>1</span>
+            <output name="wide_value" class="input-value"><span>180</span></output>градусов</label>
+        </form>
+      </div>
+    </section>
+  </div>
+  <script>
+    var axis = document.querySelectorAll(".axis");
+    axis.forEach(function (item, i, arr) {
+      var angle = item.querySelector(".angle_control");
+      var wide = item.querySelector(".wide_control");
+      var spinner = item.querySelector(".spinner_segment");
+      var width_left = item.querySelector(".spinner_segment_before");
+      var width_right = item.querySelector(".spinner_segment_after");
+      angle.addEventListener('input', function () {
+        spinner.style.cssText = "transform: rotate(" + (angle.value - 90) + "deg)";
+      }, false);
+      wide.addEventListener('input', function () {
+        width_left.style.cssText = "transform: rotate(" + (45 + +wide.value) + "deg)";
+        width_right.style.cssText = "transform: rotate(" + (45 - +wide.value) + "deg)";
+      }, false);
+    });
+  </script>
+</body>
+
+</html>

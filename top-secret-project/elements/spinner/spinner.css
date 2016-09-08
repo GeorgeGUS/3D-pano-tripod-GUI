@@ -1,0 +1,107 @@
+body {
+  background: lightgray;
+}
+
+.axis-wrapper {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.spinner {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #aaa;
+}
+
+.spinner::after {
+  /*central-dot*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: black;
+}
+
+.spinner_segment {
+  position: relative;
+  z-index: 10;
+  width: 150px;
+  height: 150px;
+  border: 50px solid dodgerblue;
+  border-radius: 50%;
+  transform: rotate(-90deg);
+  background-color: dodgerblue;
+  transform-origin: center;
+}
+
+.spinner_segment_before,
+.spinner_segment_after {
+  position: absolute;
+  pointer-events: none;
+  border: 125px solid white;
+  border-color: transparent transparent white white;
+  border-radius: 50%;
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  /* this is to have it white from 180 to 360 degrees on the left side */
+}
+
+.spinner_segment_before {
+  z-index: -10;
+  pointer-events: all;
+  transform: rotate(45deg);
+}
+
+
+/* the green sector is now 180 minus 45 plus 0 degree */
+
+.spinner_segment_after {
+  z-index: 20;
+  pointer-events: all;
+  transform: rotate(45deg);
+}
+
+label {
+  font-size: 20px;
+}
+
+form span {
+  margin: 0 2px;
+  display: inline-block;
+}
+
+.angle_wrapper {
+  line-height: 1.2;
+}
+
+.angle_wrapper > * {
+  vertical-align: middle;
+}
+
+.angle_title {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.input-value {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 5px;
+  text-align: left;
+  width: 30px;
+  font-size: 20px;
+}
