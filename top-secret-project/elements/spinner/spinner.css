@@ -4,9 +4,13 @@ body {
 
 .axis-wrapper {
   width: 100%;
-  margin-top: 50px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+.axis {
+  margin: 0 30px;
+  padding: 10px;
 }
 
 .spinner {
@@ -18,8 +22,7 @@ body {
   box-shadow: 0 0 5px #aaa;
 }
 
-.spinner::after {
-  /*central-dot*/
+.spinner::after {  /*central-dot*/
   position: absolute;
   top: 50%;
   left: 50%;
@@ -43,6 +46,18 @@ body {
   transform: rotate(-90deg);
   background-color: dodgerblue;
   transform-origin: center;
+}
+
+.spinner_segment::after {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(0, -50%);
+  content: "";
+  width: 123px;
+  height: 0;
+  border: 1px solid black;  
 }
 
 .spinner_segment_before,
