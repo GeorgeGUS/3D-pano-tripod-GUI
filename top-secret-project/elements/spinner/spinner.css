@@ -2,6 +2,27 @@ body {
   background: lightgray;
 }
 
+button {
+  margin: 10px 0;
+  width: 100px;
+  height: 35px;
+  outline: none;
+  border: dodgerblue;
+  background: dodgerblue;
+}
+
+button:hover {
+  outline: none;
+  border: lightblue;
+  background: lightblue;
+}
+
+button:active {
+  outline: none;
+  border: aliceblue;
+  background: aliceblue;
+}
+
 .axis-wrapper {
   width: 100%;
   display: flex;
