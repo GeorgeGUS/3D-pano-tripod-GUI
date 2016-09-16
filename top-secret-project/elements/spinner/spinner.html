@@ -12,7 +12,7 @@
   <div class="axis-wrapper">
     <section class="X-axis-spinner axis">
       <h2 class="axis-title">Ось X</h2>
-      <div id="spinner" class="spinner">
+      <div class="spinner">
         <div class="spinner_wrapper">
           <div class="spinner_segment">
             <div class="spinner_segment_before"></div>
@@ -29,13 +29,15 @@
           <label>Угол обзора: <span>180</span>
             <input type="range" class="wide_control" name="wide_control" min="0" max="89.5" step="0.5" value="0"><span>1</span>
             <output name="wide_value" class="input-value"><span>180</span></output>градусов</label><br/>
-            <label>Количество оборотов: <input type="text" class="num_of_revo" name="num_of_revo" value="1"></label>
+            <label>Количество оборотов: <input type="text" class="num_of_revo" name="num_of_revo" value="1"></label><br/>
+            <label>Интервал<input type="text" class="interval" value="0">секунд</label><br/>
+            <button type="button" onclick="timeIntervalRotation();">Запустить</button>            
         </form>
       </div>
     </section>
     <section class="Y-axis-spinner axis">
       <h2 class="axis-title">Ось Y</h2>
-      <div id="spinner" class="spinner">
+      <div class="spinner">
         <div class="spinner_wrapper">
           <div class="spinner_segment">
             <div class="spinner_segment_before"></div>
@@ -57,26 +59,8 @@
       </div>
     </section>
   </div>
-  <script>
-    var axis = document.querySelectorAll(".axis");
-    axis.forEach(function (item, i, arr) {
-      var rotate = item.querySelector(".rotate_control"); //регулятор угла поворота
-      var wide = item.querySelector(".wide_control"); //регулятор угла обзора
-      var spinner = item.querySelector(".spinner_segment"); //вращающийся сегмент
-      var numOfRevo = item.querySelector(".num_of_revo"); //количество оборотов
-      var width_left = item.querySelector(".spinner_segment_before");
-      var width_right = item.querySelector(".spinner_segment_after");
-      rotate.addEventListener('input', function () {
-        spinner.style.cssText = "transform: rotate(" + (rotate.value*numOfRevo.value - 90) + "deg)";
-      }, false);
-      wide.addEventListener('input', function () {
-        width_left.style.cssText = "transform: rotate(" + (45 + +wide.value) + "deg)";
-        width_right.style.cssText = "transform: rotate(" + (45 - +wide.value) + "deg)";
-      }, false);
-      
-      
-    });
-  </script>
+  
+  <script src="spinner.js"></script>
 </body>
 
 </html>
