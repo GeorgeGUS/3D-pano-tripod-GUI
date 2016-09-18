@@ -10,7 +10,7 @@
 
 <body>
   <div class="axis-wrapper">
-    <section class="X-axis-spinner axis">
+    <section id="X-axis-spinner" class="axis">
       <h2 class="axis-title">Ось X</h2>
       <div class="spinner">
         <div class="spinner_wrapper">
@@ -31,11 +31,12 @@
             <output name="wide_value" class="input-value"><span>180</span></output>градусов</label><br/>
             <label>Количество оборотов: <input type="text" class="num_of_revo" name="num_of_revo" value="1"></label><br/>
             <label>Интервал<input type="text" class="interval" value="0">секунд</label><br/>
-            <button type="button" onclick="timeIntervalRotation(45);">Запустить</button>            
+            <button type="button" id="startBtn">Запустить</button>
+            <p id="timerID"></p>
         </form>
       </div>
     </section>
-    <section class="Y-axis-spinner axis">
+    <section id="Y-axis-spinner" class="axis">
       <h2 class="axis-title">Ось Y</h2>
       <div class="spinner">
         <div class="spinner_wrapper">
